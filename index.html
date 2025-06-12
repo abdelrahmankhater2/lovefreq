@@ -1,137 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ========================================
+         DOCUMENT HEAD - META & RESOURCES
+         ======================================== -->
+    
+    <!-- Character encoding for international text support -->
     <meta charset="UTF-8" />
+    
+    <!-- Responsive design viewport meta tag for mobile optimization -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sonic Assignment - Radio Interface</title>
+    
+    <!-- Document title displayed in browser tab -->
+    <title>LoveFreq</title>
 
-    <!-- external stylesheet -->
+    <!-- External stylesheet linking - contains all CSS styling for the radio interface -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Enhanced Glassmorphic Navigation Bar -->
+    <!-- ========================================
+         MAIN NAVIGATION BAR
+         ======================================== -->
+    
+    <!-- Enhanced Glassmorphic Navigation Bar with backdrop blur effects -->
     <nav class="navbar">
+        <!-- Brand/logo link - main site identifier -->
         <a href="#" class="navbar-brand">LoveFreq</a>
+        
+        <!-- Navigation menu with smooth scroll links to page sections -->
         <ul class="navbar-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#ideation">Ideation</a></li>
-            <li><a href="#behind">Behind the Scenes</a></li>
-            <li><a href="#team">Team</a></li>
+            <li><a href="#home">Home</a></li>           <!-- Main radio interface -->
+            <li><a href="#ideation">Ideation</a></li>   <!-- Love Radio concept section -->
+            <li><a href="#behind">Behind the Scenes</a></li> <!-- Development insights -->
+            <li><a href="#team">Team</a></li>          <!-- Team member profiles -->
         </ul>
     </nav>
 
+    <!-- ========================================
+         MAIN CONTENT CONTAINER
+         ======================================== -->
+    
+    <!-- Central container for all page content with responsive width -->
     <div class="container">
-        <!-- Home Section -->
+        
+        <!-- ========================================
+             HOME SECTION - MAIN RADIO INTERFACE
+             ======================================== -->
+        
         <section id="home">
-            <!-- Radio Display -->
+            <!-- ────────────────────────────────────────
+                 RADIO DISPLAY COMPONENT
+                 ──────────────────────────────────────── -->
+            
+            <!-- Main radio display with glassmorphism styling and animated background -->
             <div class="radio-display">
+                <!-- Station information display area -->
                 <div class="station-info">
+                    <!-- Large frequency display with glowing animation -->
                     <div class="frequency">101.5 FM</div>
-                    <div class="station-name">SONIC RADIO</div>
+                    
+                    <!-- Station name with monospace font for retro feel -->
+                    <div class="station-name">LoveFreq</div>
+                    
+                    <!-- Currently playing track with typewriter animation effect -->
                     <div class="now-playing">♪ Now Playing: Midnight Serenade ♪</div>
                 </div>
 
+                <!-- ────────────────────────────────────────
+                     SPECTRUM ANALYZER VISUALIZATION
+                     ──────────────────────────────────────── -->
+                
+                <!-- Container for frequency spectrum display with dark theme -->
                 <div class="spectrum-container">
+                    <!-- Frequency markers showing the FM band range -->
                     <div class="spectrum-header">
-                        <span>88.1</span>
-                        <span>95.5</span>
-                        <span>101.5</span>
-                        <span>107.9</span>
+                        <span>88.1</span>   <!-- Low end of FM band -->
+                        <span>95.5</span>   <!-- Mid-low frequency -->
+                        <span>101.5</span>  <!-- Current station frequency -->
+                        <span>107.9</span>  <!-- High end of FM band -->
                     </div>
 
+                    <!-- Spectrum visualization area with animated bars and tuning indicator -->
                     <div class="spectrum">
+                        <!-- Container for animated spectrum bars (populated by JavaScript) -->
                         <div class="spectrum-bars"></div>
+                        
+                        <!-- Moving indicator showing current tuning position -->
                         <div class="tuning-indicator"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Radio Info Panel -->
+            <!-- ────────────────────────────────────────
+                 RADIO INFORMATION PANEL
+                 ──────────────────────────────────────── -->
+            
+            <!-- Radio info panel with grid layout for signal, track info, stats, and controls -->
             <div class="radio-info">
+                <!-- Signal strength indicator with animated bars -->
                 <div class="signal-strength">
+                    <!-- Visual signal bars with different strength classes -->
                     <div class="signal-bars">
-                        <div class="signal-bar strong"></div>
-                        <div class="signal-bar strong"></div>
-                        <div class="signal-bar strong"></div>
-                        <div class="signal-bar medium"></div>
-                        <div class="signal-bar weak"></div>
+                        <div class="signal-bar strong"></div> <!-- Full strength bar -->
+                        <div class="signal-bar strong"></div> <!-- Full strength bar -->
+                        <div class="signal-bar strong"></div> <!-- Full strength bar -->
+                        <div class="signal-bar medium"></div> <!-- Medium strength bar -->
+                        <div class="signal-bar weak"></div>   <!-- Weak/no signal bar -->
                     </div>
+                    
+                    <!-- Stereo mode indicator with brand color styling -->
                     <div style="color:#ff6b35;font-size:.9rem;font-weight:600;">STEREO</div>
                 </div>
 
+                <!-- Current track information display -->
                 <div class="track-info">
+                    <!-- Track title with larger font weight -->
                     <div class="track-title">Midnight Serenade</div>
+                    
+                    <!-- Artist name in brand orange color -->
                     <div class="artist-name">The Sonic Collective</div>
+                    
+                    <!-- Album information with year -->
                     <div class="album-name">Waves of Sound • 2024</div>
                 </div>
 
+                <!-- Technical radio statistics with monospace font -->
                 <div class="radio-stats">
+                    <!-- Frequency display in MHz -->
                     <div class="stat-line"><span class="stat-label">FREQ:</span><span class="stat-value">101.5 MHz</span></div>
+                    
+                    <!-- Audio quality indicator -->
                     <div class="stat-line"><span class="stat-label">QUAL:</span><span class="stat-value">HD STEREO</span></div>
+                    
+                    <!-- Signal strength in dBm -->
                     <div class="stat-line"><span class="stat-label">SIGNAL:</span><span class="stat-value">85 dBm</span></div>
+                    
+                    <!-- Tuning mode setting -->
                     <div class="stat-line"><span class="stat-label">MODE:</span><span class="stat-value">AUTO</span></div>
                 </div>
 
-                <!-- Radio Tuning Knob -->
+                <!-- ────────────────────────────────────────
+                     RADIO TUNING KNOB COMPONENT
+                     ──────────────────────────────────────── -->
+                
+                <!-- Radio Tuning Knob with 3D styling and rotation functionality -->
                 <div class="radio-knob-container">
+                    <!-- Main tuning knob with click interaction -->
                     <div class="radio-knob" id="homeTuningKnob">
+                        <!-- Inner rotating element containing indicator and center -->
                         <div class="knob-inner">
+                            <!-- White indicator line showing knob position -->
                             <div class="knob-indicator"></div>
+                            
+                            <!-- Orange center circle with gradient and highlight -->
                             <div class="knob-center"></div>
                         </div>
                     </div>
+                    
+                    <!-- Label below knob -->
                     <div class="knob-label">TUNING</div>
                 </div>
             </div>
 
-            <!-- Controls Section -->
+            <!-- ────────────────────────────────────────
+                 MAIN CONTROLS SECTION
+                 ──────────────────────────────────────── -->
+            
+            <!-- Controls Section with glassmorphism and hover effects -->
             <div class="controls-section">
+                <!-- Vertical layout container for all controls -->
                 <div class="controls-layout">
-                    <div class="transcript"><p id="liveTranscript"></p></div>
+                    <!-- ────────────────────────────────────────
+                         SONG PROGRESS COMPONENT
+                         ──────────────────────────────────────── -->
+                    
+                    <!-- Song progress display with interactive scrubbing -->
+                    <div class="song-progress">
+                        <!-- Time display showing current and total time -->
+                        <div class="time-display">
+                            <span class="current-time">0:00</span>  <!-- Current playback time -->
+                            <span class="separator">•</span>        <!-- Visual separator -->
+                            <span class="total-time">1:00</span>    <!-- Total track duration -->
+                        </div>
+                        
+                        <!-- Interactive progress bar with click/drag support -->
+                        <div class="progress-track">
+                            <!-- Progress fill element (width controlled by JavaScript) -->
+                            <div class="progress-fill" id="songProgressFill"></div>
+                        </div>
+                    </div>
 
+                    <!-- ────────────────────────────────────────
+                         TRANSPORT CONTROLS
+                         ──────────────────────────────────────── -->
+                    
+                    <!-- Main playback transport controls -->
                     <div class="transport">
+                        <!-- Previous track button -->
                         <button class="skip-btn prev-btn"  title="Previous">⏮</button>
+                        
+                        <!-- Large central play/pause button -->
                         <button class="play-button"        title="Play / Pause">▶</button>
+                        
+                        <!-- Next track button -->
                         <button class="skip-btn next-btn"  title="Next">⏭</button>
                     </div>
 
+                    <!-- ────────────────────────────────────────
+                         PRESET STATION BUTTONS
+                         ──────────────────────────────────────── -->
+                    
+                    <!-- Row of preset station buttons -->
                     <div class="preset-row">
+                        <!-- Preset 1 - Station index 0 -->
                         <button class="preset-btn"          data-preset="0">1</button>
+                        
+                        <!-- Preset 2 - Station index 1 -->
                         <button class="preset-btn"          data-preset="1">2</button>
+                        
+                        <!-- Preset 3 - Station index 2 (currently active) -->
                         <button class="preset-btn active"   data-preset="2">3</button>
+                        
+                        <!-- Preset 4 - Love Radio (special handling with modal) -->
                         <button class="preset-btn" id="preset4" data-preset="3">4</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Hidden audio elements for stations -->
+            <!-- ────────────────────────────────────────
+                 HIDDEN AUDIO ELEMENTS
+                 ──────────────────────────────────────── -->
+            
+            <!-- Hidden audio elements for different radio stations -->
+            <!-- Note: These are backup elements - main audio is managed by JavaScript -->
             <audio id="station-audio-0" preload="auto"><source src="naz1.mp3" type="audio/mp3" /></audio>
             <audio id="station-audio-1" preload="auto"><source src="naz2.mp3" type="audio/mp3" /></audio>
             <audio id="station-audio-2" preload="auto"><source src="salem.mp3" type="audio/mp3" /></audio>
             <audio id="station-audio-3" preload="auto"><source src="iqra.mp3" type="audio/mp3" /></audio>
         </section>
 
-           <!-- New Ideation Section -->
+        <!-- ========================================
+             IDEATION SECTION - LOVE RADIO CONCEPT
+             ======================================== -->
+        
+        <!-- New Ideation Section showcasing the Love Radio concept -->
         <section id="ideation" class="ideation-section">
+            <!-- ────────────────────────────────────────
+                 SECTION HEADER
+                 ──────────────────────────────────────── -->
+            
             <!-- Add the project title at the top of the ideation section -->
             <div class="ideation-header">
+                <!-- Main section title with animated underline -->
                 <h1 class="ideation-project-title">Ideation of the Project</h1>
             </div>
 
+            <!-- Intro text that fades out when radio is activated -->
             <div class="intro-text" id="introText">
+                <!-- Large glowing title for Love Radio -->
                 <h1 class="intro-title">♫ LOVE RADIO ♫</h1>
             </div>
 
+            <!-- ────────────────────────────────────────
+                 LOVE RADIO CARDS GRID
+                 ──────────────────────────────────────── -->
+            
+            <!-- Grid container for love-themed story cards and interactive radio -->
             <div class="cards-container" id="cardsContainer">
-                <!-- Large vertical card -->
+                <!-- ────────────────────────────────────────
+                     LARGE VERTICAL CARD - ROMANTIC LOVE
+                     ──────────────────────────────────────── -->
+                
+                <!-- Large vertical card spanning multiple rows -->
                 <div class="card romantic-love" data-frequency="88.1">
+                    <!-- Frequency badge in top-right corner -->
                     <div class="frequency-badge">88.1 FM</div>
+                    
+                    <!-- Card title -->
                     <h2 class="card-title">Romantic Love</h2>
+                    
+                    <!-- Card subtitle with quote -->
                     <p class="card-subtitle">"Two hearts, one rhythm"</p>
+                    
+                    <!-- Detailed description -->
                     <p class="card-description">Intimate stories of connection, passion, and the beautiful complexity of romantic relationships. From first glances to lasting partnerships, explore the depths of romantic connection.</p>
                 </div>
 
-                <!-- Small cards column -->
+                <!-- ────────────────────────────────────────
+                     SMALL CARDS COLUMN
+                     ──────────────────────────────────────── -->
+                
+                <!-- Divine Love card -->
                 <div class="card faith-love" data-frequency="88.3">
                     <div class="frequency-badge">88.3 FM</div>
                     <h2 class="card-title">Divine Love</h2>
@@ -139,6 +298,7 @@
                     <p class="card-description">Spiritual journeys exploring love as a sacred force.</p>
                 </div>
 
+                <!-- Leadership Love card -->
                 <div class="card leadership-love" data-frequency="88.5">
                     <div class="frequency-badge">88.5 FM</div>
                     <h2 class="card-title">Love in Leadership</h2>
@@ -146,6 +306,7 @@
                     <p class="card-description">Stories of leaders who transform through compassion.</p>
                 </div>
 
+                <!-- Family Love card -->
                 <div class="card family-love" data-frequency="88.7">
                     <div class="frequency-badge">88.7 FM</div>
                     <h2 class="card-title">Family Bonds</h2>
@@ -153,11 +314,23 @@
                     <p class="card-description">The unconditional love of family and chosen families.</p>
                 </div>
 
-                <!-- Radio in center -->
+                <!-- ────────────────────────────────────────
+                     INTERACTIVE BRAUN RADIO CENTER PIECE
+                     ──────────────────────────────────────── -->
+                
+                <!-- Radio in center - interactive vintage-style radio -->
                 <div class="card braun-radio" id="radio">
+                    <!-- ────────────────────────────────────────
+                         RADIO TOP SECTION
+                         ──────────────────────────────────────── -->
+                    
+                    <!-- Top section with speaker and controls -->
                     <div class="radio-top">
+                        <!-- Speaker section with circular speaker and antenna -->
                         <div class="speaker-section">
+                            <!-- Circular speaker with dot pattern -->
                             <div class="circular-speaker">
+                                <!-- Grid of speaker dots (36 total for realistic look) -->
                                 <div class="speaker-dots">
                                     <div class="speaker-dot"></div>
                                     <div class="speaker-dot"></div>
@@ -197,38 +370,65 @@
                                     <div class="speaker-dot"></div>
                                 </div>
                             </div>
+                            
+                            <!-- Radio antenna with glowing tip -->
                             <div class="antenna"></div>
                         </div>
 
+                        <!-- Radio control knobs section -->
                         <div class="radio-controls">
+                            <!-- Volume control label -->
                             <div class="control-label">VOL</div>
+                            
+                            <!-- Volume knob button -->
                             <button class="small-knob" id="volumeKnob">
                                 <div class="knob-indicator"></div>
                             </button>
                         </div>
                     </div>
                     
+                    <!-- ────────────────────────────────────────
+                         RADIO BOTTOM SECTION
+                         ──────────────────────────────────────── -->
+                    
+                    <!-- Bottom section with display and tuning controls -->
                     <div class="radio-bottom">
+                        <!-- LCD-style information display -->
                         <div class="info-display" id="infoDisplay">
+                            <!-- Display header with frequency and status -->
                             <div class="frequency-header">
                                 <span class="frequency-badge-display">FM 88.7</span>
                                 <span class="now-playing">NOW PLAYING</span>
                             </div>
+                            
+                            <!-- Story title with glow effect -->
                             <div class="story-title">Family Bonds</div>
+                            
+                            <!-- Story subtitle -->
                             <div class="story-subtitle">"Love that roots us"</div>
                         </div>
                         
+                        <!-- Main tuning section -->
                         <div class="tuning-section">
+                            <!-- Tuning knob container -->
                             <div class="knob-container">
+                                <!-- Large main tuning knob -->
                                 <button class="main-tuning-knob" id="tuningKnob">
                                     <div class="main-knob-indicator"></div>
                                 </button>
                             </div>
+                            
+                            <!-- Hint text for interaction -->
                             <div class="knob-hint">Click to tune</div>
                         </div>
                     </div>
 
-                    <!-- Audio elements for different frequencies -->
+                    <!-- ────────────────────────────────────────
+                         LOVE RADIO AUDIO ELEMENTS
+                         ──────────────────────────────────────── -->
+                    
+                    <!-- Audio elements for different Love Radio frequencies -->
+                    <!-- Note: These are disabled in Love Radio - only for reference -->
                     <audio id="radioAudio88.1" preload="auto">
                         <source src="audio/salem.mp3" type="audio/mp3" />
                     </audio>
@@ -248,16 +448,21 @@
                         <source src="audio/salem.mp3" type="audio/mp3" />
                     </audio>
 
+                    <!-- Volume indicator with animated bars -->
                     <div class="volume-indicator" id="volumeIndicator">
-                        <div class="volume-bar active"></div>
-                        <div class="volume-bar active"></div>
-                        <div class="volume-bar active"></div>
-                        <div class="volume-bar"></div>
-                        <div class="volume-bar"></div>
+                        <div class="volume-bar active"></div>   <!-- Active volume bar -->
+                        <div class="volume-bar active"></div>   <!-- Active volume bar -->
+                        <div class="volume-bar active"></div>   <!-- Active volume bar -->
+                        <div class="volume-bar"></div>          <!-- Inactive volume bar -->
+                        <div class="volume-bar"></div>          <!-- Inactive volume bar -->
                     </div>
                 </div>
 
-                <!-- Right side card -->
+                <!-- ────────────────────────────────────────
+                     RIGHT SIDE CARDS
+                     ──────────────────────────────────────── -->
+                
+                <!-- Self-love card (spans 2 rows vertically) -->
                 <div class="card self-love" data-frequency="88.9">
                     <div class="frequency-badge">88.9 FM</div>
                     <h2 class="card-title">Self-Love</h2>
@@ -265,7 +470,11 @@
                     <p class="card-description">Personal transformation stories and self-compassion.</p>
                 </div>
 
-                <!-- Wide bottom card -->
+                <!-- ────────────────────────────────────────
+                     WIDE BOTTOM CARD
+                     ──────────────────────────────────────── -->
+                
+                <!-- Universal love card (spans full width at bottom) -->
                 <div class="card universal-love" data-frequency="89.1">
                     <div class="frequency-badge">89.1 FM</div>
                     <div class="content">
@@ -276,27 +485,52 @@
                 </div>
             </div>
 
+            <!-- ────────────────────────────────────────
+                 ANIMATED RADIO WAVES
+                 ──────────────────────────────────────── -->
+            
+            <!-- Radio waves animation overlay -->
             <div class="radio-waves" id="radioWaves">
-                <div class="wave"></div>
-                <div class="wave"></div>
-                <div class="wave"></div>
+                <!-- Three concentric expanding waves -->
+                <div class="wave"></div>  <!-- Inner wave -->
+                <div class="wave"></div>  <!-- Middle wave -->
+                <div class="wave"></div>  <!-- Outer wave -->
             </div>
         </section>
 
-        <!-- Behind the Scenes Section -->
+        <!-- ========================================
+             BEHIND THE SCENES SECTION
+             ======================================== -->
+        
+        <!-- Behind the Scenes Section with development insights -->
         <section id="behind" class="behind-scenes-section">
+            <!-- Section title with animated underline -->
             <h2 class="section-title">Behind the Scenes</h2>
 
+            <!-- Main content container with glassmorphism -->
             <div class="behind-scenes-container">
+                <!-- ────────────────────────────────────────
+                     EMBEDDED VIDEO
+                     ──────────────────────────────────────── -->
+                
+                <!-- Responsive video container with 16:9 aspect ratio -->
                 <div class="video-container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mU0NaMjH5Iw?si=ANn6njepxfjwmXms" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <!-- Embedded YouTube video showing development process -->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/mU0NaMjH5Iw?si=ANn6njepxfjwmXms" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
 
+                <!-- ────────────────────────────────────────
+                     BEHIND THE SCENES CONTENT
+                     ──────────────────────────────────────── -->
+                
+                <!-- Text content describing the development process -->
                 <div class="behind-scenes-content">
+                    <!-- Main heading with monospace font -->
                     <h3>The Making of LoveFreq</h3>
 
+                    <!-- Introductory paragraph about the project -->
                     <p>
-                      Welcome to the creative journey behind Sonic Radio! In this
+                      Welcome to the creative journey behind LoveFreq! In this
                       behind-the-scenes look, we explore the fascinating process of
                       bringing our retro-inspired radio interface to life. From the
                       initial concept sketches to the final implementation, we've
@@ -304,6 +538,7 @@
                       to create an immersive audio experience.
                     </p>
 
+                    <!-- Second paragraph about team effort and details -->
                     <p>
                       Our team of designers and developers worked tirelessly to perfect
                       every detail, from the smooth animations of the spectrum analyzer
@@ -312,8 +547,14 @@
                       discover and enjoy music.
                     </p>
 
+                    <!-- ────────────────────────────────────────
+                         TECHNOLOGY STACK SECTION
+                         ──────────────────────────────────────── -->
+                    
+                    <!-- Technology stack information box -->
                     <div class="tech-stack">
                         <h4>Technologies Used:</h4>
+                        <!-- List of technologies with custom bullet points -->
                         <ul>
                             <li>HTML5 &amp; CSS3 for structure and styling</li>
                             <li>JavaScript for interactive features</li>
@@ -325,180 +566,255 @@
             </div>
         </section>
 
-   <!--────────────────────  MEET THE TEAM  ────────────────────-->
-<section id="team" class="team-section">
-  <h2 class="section-title">Meet&nbsp;the&nbsp;Team</h2>
+        <!-- ========================================
+             TEAM SECTION - MEMBER PROFILES
+             ======================================== -->
+        
+        <!--────────────────────  MEET THE TEAM  ────────────────────-->
+        <section id="team" class="team-section">
+            <!-- Section title -->
+            <h2 class="section-title">Meet&nbsp;the&nbsp;Team</h2>
 
-  <div class="team-cards">
-    <!-- ─── Iqra ───────────────────────────────────────────-->
-    <div class="music-player orange" data-player="1">
-      <div class="player-header">
-        <div class="artist-info">
-          <div class="artist-details">
-            <h3>Iqra Bano</h3>
-            <p>Class of 2026</p>
-            <p>Interactive Media &amp; Psychology</p>
-            <p>UI/UX Designer</p>
-          </div>
-        </div>
-        <div class="action-buttons">
-          <button class="action-btn" title="Share">🔗</button>
-          <button class="action-btn" title="Like">❤</button>
-        </div>
-      </div>
+            <!-- Team cards container with horizontal layout -->
+            <div class="team-cards">
+                <!-- ────────────────────────────────────────
+                     TEAM MEMBER 1 - IQRA BANO
+                     ──────────────────────────────────────── -->
+                
+                <!-- ─── Iqra ─────────────────────────────────────────── -->
+                <div class="music-player orange" data-player="1">
+                    <!-- Player header with member info and action buttons -->
+                    <div class="player-header">
+                        <!-- Artist/member information -->
+                        <div class="artist-info">
+                            <div class="artist-details">
+                                <h3>Iqra Bano</h3>                              <!-- Name -->
+                                <p>Class of 2026</p>                           <!-- Graduation year -->
+                                <p>Interactive Media &amp; Psychology</p>      <!-- Major -->
+                                <p>UI/UX Designer</p>                          <!-- Role -->
+                            </div>
+                        </div>
+                        
+                        <!-- Action buttons for sharing and liking -->
+                        <div class="action-buttons">
+                            <button class="action-btn" title="Share">🔗</button>
+                            <button class="action-btn" title="Like">❤</button>
+                        </div>
+                    </div>
 
-      <div class="album-art">
-        <img src="Images/image01.jpg" alt="Iqra Bano photo">
-      </div>
+                    <!-- Album art area with member photo -->
+                    <div class="album-art">
+                        <img src="Images/image01.jpg" alt="Iqra Bano photo">
+                    </div>
 
-      <div class="progress-container">
-        <div class="time-info">
-          <span class="time current-time">0:00</span>
-          <span class="time total-time">-0:14</span>
-        </div>
-        <div class="progress-bar"><div class="progress-fill"></div></div>
-      </div>
-      <audio preload="auto">
-        <source src="audio/iqraintro.mp3" type="audio/mp3">
-      </audio>
+                    <!-- Progress bar for audio introduction -->
+                    <div class="progress-container">
+                        <!-- Time display showing current and remaining time -->
+                        <div class="time-info">
+                            <span class="time current-time">0:00</span>    <!-- Current time -->
+                            <span class="time total-time">-0:14</span>     <!-- Remaining time -->
+                        </div>
+                        
+                        <!-- Interactive progress bar -->
+                        <div class="progress-bar"><div class="progress-fill"></div></div>
+                    </div>
+                    
+                    <!-- Audio element for member introduction -->
+                    <audio preload="auto">
+                        <source src="audio/iqraintro.mp3" type="audio/mp3">
+                    </audio>
 
-      <div class="controls">
-        <button class="control-btn skip-btn prev-btn">⏮</button>
-        <button class="control-btn play-btn">▶</button>
-        <button class="control-btn skip-btn next-btn">⏭</button>
-      </div>
+                    <!-- Playback controls -->
+                    <div class="controls">
+                        <button class="control-btn skip-btn prev-btn">⏮</button>  <!-- Previous -->
+                        <button class="control-btn play-btn">▶</button>           <!-- Play/Pause -->
+                        <button class="control-btn skip-btn next-btn">⏭</button>  <!-- Next -->
+                    </div>
+                </div>
+
+                <!-- ────────────────────────────────────────
+                     TEAM MEMBER 2 - IREM NAZ CELEN
+                     ──────────────────────────────────────── -->
+                
+                <!-- ─── Naz ──────────────────────────────────────────── -->
+                <div class="music-player purple" data-player="2">
+                    <!-- Player header with member info -->
+                    <div class="player-header">
+                        <div class="artist-info">
+                            <div class="artist-details">
+                                <h3>Irem Naz Celen</h3>                        <!-- Name -->
+                                <p>NYU Class of 2025</p>                       <!-- Graduation -->
+                                <p>Computer Engineer</p>                       <!-- Major -->
+                                <p>Confused</p>                                <!-- Humorous role description -->
+                            </div>
+                        </div>
+                        
+                        <!-- Action buttons -->
+                        <div class="action-buttons">
+                            <button class="action-btn" title="Share">🔗</button>
+                            <button class="action-btn" title="Like">❤</button>
+                        </div>
+                    </div>
+
+                    <!-- Member photo -->
+                    <div class="album-art">
+                        <img src="Images/image02.jpg" alt="Naz photo">
+                    </div>
+
+                    <!-- Progress and time display -->
+                    <div class="progress-container">
+                        <div class="time-info">
+                            <span class="time current-time">0:00</span>
+                            <span class="time total-time">-1:37</span>     <!-- Longer introduction -->
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill"></div></div>
+                    </div>
+                    
+                    <!-- Audio introduction -->
+                    <audio preload="auto">
+                        <source src="audio/nazintro.mp3" type="audio/mp3">
+                    </audio>
+
+                    <!-- Playback controls -->
+                    <div class="controls">
+                        <button class="control-btn skip-btn prev-btn">⏮</button>
+                        <button class="control-btn play-btn">▶</button>
+                        <button class="control-btn skip-btn next-btn">⏭</button>
+                    </div>
+                </div>
+
+                <!-- ────────────────────────────────────────
+                     TEAM MEMBER 3 - SALEM AL SHAMSI
+                     ──────────────────────────────────────── -->
+                
+                <!-- ─── Salem ──────────────────────────────────────── -->
+                <div class="music-player green" data-player="3">
+                    <!-- Member information -->
+                    <div class="player-header">
+                        <div class="artist-info">
+                            <div class="artist-details">
+                                <h3>Salem Al Shamsi</h3>                       <!-- Name -->
+                                <p>Class of 2027</p>                           <!-- Graduation year -->
+                                <p>CS & IM</p>                                 <!-- Dual major -->
+                                <p>Strategic thinker</p>                       <!-- Role description -->
+                            </div>
+                        </div>
+                        
+                        <!-- Action buttons -->
+                        <div class="action-buttons">
+                            <button class="action-btn" title="Share">🔗</button>
+                            <button class="action-btn" title="Like">❤</button>
+                        </div>
+                    </div>
+
+                    <!-- Member photo -->
+                    <div class="album-art">
+                        <img src="Images/image03.jpg" alt="Another Artist photo">
+                    </div>
+
+                    <!-- Progress display -->
+                    <div class="progress-container">
+                        <div class="time-info">
+                            <span class="time current-time">0:00</span>
+                            <span class="time total-time">-0:14</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill"></div></div>
+                    </div>
+                    
+                    <!-- Audio introduction -->
+                    <audio preload="auto">
+                        <source src="audio/salemintro.mp3" type="audio/mp3">
+                    </audio>
+
+                    <!-- Playback controls -->
+                    <div class="controls">
+                        <button class="control-btn skip-btn prev-btn">⏮</button>
+                        <button class="control-btn play-btn">▶</button>
+                        <button class="control-btn skip-btn next-btn">⏭</button>
+                    </div>
+                </div>
+
+                <!-- ────────────────────────────────────────
+                     TEAM MEMBER 4 - ABDELRAHMAN KHATER
+                     ──────────────────────────────────────── -->
+                
+                <!-- ─── Abdelrahman ────────────────────────────────── -->
+                <div class="music-player blue" data-player="4">
+                    <!-- Member information -->
+                    <div class="player-header">
+                        <div class="artist-info">
+                            <div class="artist-details">
+                                <h3>Abdelrahman Khater</h3>                    <!-- Name -->
+                                <p>Class of 2025</p>                          <!-- Graduation year -->
+                                <p>Computer Science & Philosophy</p>          <!-- Dual major -->
+                                <p>Loading</p>                                <!-- Humorous status -->
+                            </div>
+                        </div>
+                        
+                        <!-- Action buttons -->
+                        <div class="action-buttons">
+                            <button class="action-btn" title="Share">🔗</button>
+                            <button class="action-btn" title="Like">❤</button>
+                        </div>
+                    </div>
+
+                    <!-- Member photo -->
+                    <div class="album-art">
+                        <img src="Images/image04.jpg" alt="Alex Chen photo">
+                    </div>
+
+                    <!-- Progress display -->
+                    <div class="progress-container">
+                        <div class="time-info">
+                            <span class="time current-time">0:00</span>
+                            <span class="time total-time">-0:00</span>     <!-- No duration yet -->
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill"></div></div>
+                    </div>
+                    
+                    <!-- Audio introduction -->
+                    <audio preload="auto">
+                        <source src="audio/abdelrahmanintro.mp3" type="audio/mp3">
+                    </audio>
+
+                    <!-- Playback controls -->
+                    <div class="controls">
+                        <button class="control-btn skip-btn prev-btn">⏮</button>
+                        <button class="control-btn play-btn">▶</button>
+                        <button class="control-btn skip-btn next-btn">⏭</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--──────────────────  /MEET THE TEAM  ────────────────────-->
     </div>
 
-    <!-- ─── Naz ────────────────────────────────────────────-->
-    <div class="music-player purple" data-player="2">
-      <div class="player-header">
-        <div class="artist-info">
-          <div class="artist-details">
-            <h3>Irem Naz Celen</h3>
-            <p>NYU Class of 2025</p>
-            <p>Computer Engineer</p>
-            <p>Confused</p>
-          </div>
-        </div>
-        <div class="action-buttons">
-          <button class="action-btn" title="Share">🔗</button>
-          <button class="action-btn" title="Like">❤</button>
-        </div>
-      </div>
-
-      <div class="album-art">
-        <img src="Images/image02.jpg" alt="Naz photo">
-      </div>
-
-      <div class="progress-container">
-        <div class="time-info">
-          <span class="time current-time">0:00</span>
-          <span class="time total-time">-1:37</span>
-        </div>
-        <div class="progress-bar"><div class="progress-fill"></div></div>
-      </div>
-      <audio preload="auto">
-        <source src="audio/nazintro.mp3" type="audio/mp3">
-      </audio>
-
-      <div class="controls">
-        <button class="control-btn skip-btn prev-btn">⏮</button>
-        <button class="control-btn play-btn">▶</button>
-        <button class="control-btn skip-btn next-btn">⏭</button>
-      </div>
-    </div>
-
-    <!-- ─── Another Artist ─────────────────────────────────-->
-    <div class="music-player green" data-player="3">
-      <div class="player-header">
-        <div class="artist-info">
-          <div class="artist-details">
-            <h3>Salem Al Shamsi</h3>
-            <p>Class of 2027</p>
-            <p>CS & IM</p>
-            <p>Strategic thinker</p>
-          </div>
-        </div>
-        <div class="action-buttons">
-          <button class="action-btn" title="Share">🔗</button>
-          <button class="action-btn" title="Like">❤</button>
-        </div>
-      </div>
-
-      <div class="album-art">
-        <img src="Images/image03.jpg" alt="Another Artist photo">
-      </div>
-
-      <div class="progress-container">
-        <div class="time-info">
-          <span class="time current-time">0:00</span>
-          <span class="time total-time">-0:14</span>
-        </div>
-        <div class="progress-bar"><div class="progress-fill"></div></div>
-      </div>
-      <audio preload="auto">
-        <source src="audio/salemintro.mp3" type="audio/mp3">
-      </audio>
-
-      <div class="controls">
-        <button class="control-btn skip-btn prev-btn">⏮</button>
-        <button class="control-btn play-btn">▶</button>
-        <button class="control-btn skip-btn next-btn">⏭</button>
-      </div>
-    </div>
-
-    <!-- ─── Alex Chen ──────────────────────────────────────-->
-    <div class="music-player blue" data-player="4">
-      <div class="player-header">
-        <div class="artist-info">
-          <div class="artist-details">
-            <h3>Abdelrahman Khater</h3>
-            <p>Class of 2025</p>
-            <p>Computer Science & Philosophy</p>
-            <p>Loading</p>
-          </div>
-        </div>
-        <div class="action-buttons">
-          <button class="action-btn" title="Share">🔗</button>
-          <button class="action-btn" title="Like">❤</button>
-        </div>
-      </div>
-
-      <div class="album-art">
-        <img src="Images/image04.jpg" alt="Alex Chen photo">
-      </div>
-
-      <div class="progress-container">
-        <div class="time-info">
-          <span class="time current-time">0:00</span>
-          <span class="time total-time">-1:00</span>
-        </div>
-        <div class="progress-bar"><div class="progress-fill"></div></div>
-      </div>
-      <audio preload="auto">
-        <source src="audio/abdelrahmanintro.mp3" type="audio/mp3">
-      </audio>
-
-      <div class="controls">
-        <button class="control-btn skip-btn prev-btn">⏮</button>
-        <button class="control-btn play-btn">▶</button>
-        <button class="control-btn skip-btn next-btn">⏭</button>
-      </div>
-    </div>
-  </div>
-</section>
-<!--──────────────────  /MEET THE TEAM  ────────────────────-->
-
-
-    <!-- Love Choice Modal -->
+    <!-- ========================================
+         MODAL COMPONENTS
+         ======================================== -->
+    
+    <!-- ────────────────────────────────────────
+         LOVE CHOICE MODAL
+         ──────────────────────────────────────── -->
+    
+    <!-- Love Choice Modal for preset 4 interaction -->
     <div id="loveModal" class="modal-overlay">
+        <!-- Modal content with glassmorphism and animations -->
         <div class="modal-content">
+            <!-- Modal title with heart symbol -->
             <h2 class="modal-title">♡ Before We Continue ♡</h2>
+            
+            <!-- Subtitle explaining the choice -->
             <p class="modal-subtitle">Which resonates with you?</p>
+            
+            <!-- Choice buttons container -->
             <div class="modal-choices">
+                <!-- Choice 1: Being loved preference -->
                 <button class="choice-btn" data-answer="beingLoved">
                     Do you love being loved?
                 </button>
+                
+                <!-- Choice 2: Loving others preference -->
                 <button class="choice-btn" data-answer="loving">
                     Do you love loving?
                 </button>
@@ -506,16 +822,29 @@
         </div>
     </div>
 
+    <!-- ========================================
+         FOOTER SECTION
+         ======================================== -->
+    
+    <!-- Simple footer with team and course credits -->
     <footer class="simple-footer">
-    <div class="simple-footer-content">
-        <p>
-            Created by <strong>Lovefreq Team</strong> • <span class="commlab">CommLab 2025</span>
-        </p>
-    </div>
-</footer>
+        <div class="simple-footer-content">
+            <!-- Credit text with team name and course -->
+            <p>
+                Created by <strong>Lovefreq Team</strong> • <span class="commlab">CommLab 2025</span>
+            </p>
+        </div>
+    </footer>
 
-
-    <!-- external script -->
+    <!-- ========================================
+         EXTERNAL SCRIPTS
+         ======================================== -->
+    
+    <!-- External JavaScript file containing all interactive functionality -->
     <script src="script.js"></script>
 </body>
 </html>
+
+<!-- ========================================
+     END OF HTML DOCUMENT
+     ======================================== -->
