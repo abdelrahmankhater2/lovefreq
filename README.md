@@ -67,8 +67,5 @@ LoveFreq is built with standard HTML5, CSS3, and vanilla JavaScript. It should w
 - Flexbox and Grid layouts
 - CSS animations and keyframes
 
-## License 📄
-This project is open-source and released under the MIT License. Feel free to use, modify, and distribute.
-
 ## Acknowledgments 🙏
 Inspired by classic Braun radio designs and modern glassmorphism trends.
